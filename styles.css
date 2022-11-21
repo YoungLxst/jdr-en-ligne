@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Tomorrow;
+    src: url('Tomorrow/Tomorrow-Regular.ttf');
+}
 
 *{
     margin: 0;
@@ -17,11 +21,12 @@ body{
     padding: 0 px;
 }
 
-header{
+#head{
     height: 550px;
     background: url(resources/title.jpg);
-    background-attachment: fixed;
+    background-attachment:fixed;
     background-size: 100%;
+    ;
 }
 
 header h1{
@@ -63,21 +68,37 @@ a:hover
     width: 100%;
     height: 80px;
     background: url('resources/reverse.png') center top;
+    animation: alternate;
+    font-family: Tomorrow;
 }
 #barreDesTaches.floatable{
+    font-family: Tomorrow;
     position: fixed;
     top: 0;
     width:100%;
     height: 80px;
     background: url('resources/reverse.png') center top;
     padding-right: 100%;
+    animation:alternate;
+    margin: 0;
+    padding: 0;
 }
 
 #explication{
     height: 500px;
+    background: url('resources/Cyberpunk2077_Mr_Jenkins_RGB-en.jpg');  
+    background-attachment: fixed;
+    background-position: 70ch;
+}
+
+#explication.floatable{
+    height: 500px;
     background: url('resources/Cyberpunk2077_Mr_Jenkins_RGB-en.jpg');    
     background-attachment: fixed;
     background-position: 70ch;
+    margin: 0;
+    padding: 0;
+    margin-top: 80px;
 }
 
 #reseau{
@@ -113,3 +134,9 @@ a:hover
     margin-bottom: 10px;
     color:#eec60a;
 }
+
+@media screen 
+{
+    
+}
+

@@ -3,19 +3,18 @@
     <head>
         <title>Cyberpunk</title>
         <meta charset="UTF8">
-        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="jquery-3.6.1.min.js"></script>
         <script src="javaScript.js"></script>
         <link rel="shortcut icon" href="resources/1987458.jpg" type="jpg" />
         <link rel="stylesheet"  href="styles.css"/>
     </head>
     <body>
-        
-        <header>
+        <header id="head">
             <h1></h1>
             <nav>
                 <ul>
                     <li>
-                        <a href="#connect">connection</a>
+                        <a href="formulairecode.html">connection</a>
                     </li>
                     <li>
                         <a href="#inscription">inscription</a>
@@ -57,30 +56,5 @@
             <p>mention legal "je suis beau"</p>
             </div>
         </section>
-        <script type="text/javascript">
-            // listen for scroll
-            var positionElementInPage = $('#barreDesTaches').offset().top;
-            $(window).scroll(
-                function() {
-                    if ($(window).scrollTop() >= positionElementInPage) {
-                        // fixed
-                        $('#barreDesTaches').addClass("floatable");
-                    } else {
-                        // relative
-                        $('#barreDesTaches').removeClass("floatable");
-                    }
-                    if ($(window).scrollTop() >= positionElementInPage) {
-                        // fixed
-                        $('#barreDesTaches nav ul li').addClass("floatable");
-                    } else {
-                        // relative
-                        $('#barreDesTaches nav ul li').removeClass("floatable");
-                    }
-                }
-            );
-        </script>
-        </script type="text/javaScript">
-            
-        </script>
     </body>
 </html>
