@@ -4,9 +4,9 @@
         <title>Cyberpunk</title>
         <meta charset="UTF8">
         <script src="jquery-3.6.1.min.js"></script>
-
+        <script src="js/scrollBar.js"></script>
         <link rel="shortcut icon" href="resources/1987458.jpg" type="jpg" />
-        <link rel="stylesheet"  href="styles.css"/>
+        <link rel="stylesheet"  href="css/styles.css"/>
     </head>
     <body>
         <header id="head">
@@ -26,13 +26,13 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="site_local.html">accueil</a>
+                        <a href="index.html">accueil</a>
                     </li>
                     <li>
                         <a href="regles.html">régles</a>
                     </li>
                     <li>
-                        <a href="#perso">personage crée</a>
+                        <a href="personnage.html">personage crée</a>
                     </li>
                     <li>
                         <a href="partie.html">jouer</a>
@@ -49,9 +49,128 @@
 
             </div>
         </section>
+        <section id="creation">
+            <div class="wrapper">
+                <h2>creation de personnage</h2>
+
+                <form action="" method="POST">
+                    <div class="info">
+                        <label for="nom">Nom</label>
+                        <p class="errorLog" id="nom_error"></p>
+                        <input type="text" placeholder="le nom de votre personnage" name="nom" id="nom">
+                    </div>
+                    <div class="info">
+                        <label for="prenom">Prenom</label>
+                        <p class="errorLog" id="prenom_error"></p>
+                        <input type="text" placeholder="le prenom de votre personnage" name="prenom" id="prenom">
+                    </div>
+
+                    <p class="errorLog" id="CARA_error"></p>
+                    <table id="stat_tab">
+                       <tr>
+                            <td>
+                                <label>Inteligence</label>
+                                <p class="errorLog" id="INT_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="int" id="int">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Réflexes</label>
+                                <p class="errorLog" id="REF_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="ref" id="ref">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Technique</label>
+                                <p class="errorLog" id="TECH_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="tech" id="tech">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Volonté</label>
+                                <p class="errorLog" id="VOL_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="vol" id="vol">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Prestance</label>
+                                <p class="errorLog" id="PRES_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="pres" id="pres">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Empathie</label>
+                                <p class="errorLog" id="EMP_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="emp" id="emp">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Chance</label>
+                                <p class="errorLog" id="CHA_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="cha" id="cha">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Corps</label>
+                                <p class="errorLog" id="COR_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="cor" id="cor">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Dextérité</label>
+                                <p class="errorLog" id="DEX_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="dex" id="dex">
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                <label>Mouvement</label>
+                                <p class="errorLog" id="MOUV_error"></p>
+                            </td>
+                            <td>
+                                <input type="number" name="mouv" id="mouv">
+                            </td>
+                        </tr> 
+                    </table>
+
+                    <div class="info">
+                        <label for="cree">creation de l'edgeRunner</label>
+                        <p class="errorLog" id="QUERY_error"></p>
+                        <input type="submit"  value="creation" name="cree" id="cree">
+                    </div>
+                </form>
+                
+            </div>
+        </section>
         <section id="reseau">
             
         </section>
     </body>
-    <script src="javaScript.js"></script>
+    <script src="js/createEdge.js"></script>
 </html>

@@ -17,6 +17,7 @@ $(document).ready(
         var color = document.getElementById('myColor');
         var bgrColor = document.getElementById('background');
         var size = document.getElementById('size');
+        var bPawn = document.getElementById('pawn');
 
         let painting = false;
         let penUsed = true;
@@ -92,6 +93,18 @@ $(document).ready(
             }
         }
 
+        function addPawn(){
+            rects.push({
+                x: 75 - 45,
+                y: 50 - 45,
+                width: 20,
+                height: 30,
+                fill: "#4cc7da",
+                isDragging: false
+            });
+            drawPawn();
+        }
+
         function calculDistance(r, x, y) {
             var dist;
             var distX;
@@ -145,6 +158,8 @@ $(document).ready(
         bgrColor.addEventListener('change', function () {
             canvas.style.backgroundColor = bgrColor.value;
         });
+
+        bPawn.addEventListener('click',addPawn);
 
 
         function myDown(e) {

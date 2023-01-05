@@ -14,12 +14,4 @@ $(function(){
         }
     }
     );
-/*
-    window.onresize = 
-        function(){
-            var Size1 = document.getElementById('head').offsetWidth;
-            var newSize = Size1*0.305;
-            console.log(newSize);
-            document.getElementById('head').style.height = '101px';
-        }*/
 });

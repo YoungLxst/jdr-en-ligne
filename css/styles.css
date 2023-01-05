@@ -1,6 +1,6 @@
 @font-face {
     font-family: Tomorrow;
-    src: url('Tomorrow/Tomorrow-Regular.ttf');
+    src: url(../Tomorrow/Tomorrow-Regular.ttf);
 }
 
 *{
@@ -23,7 +23,7 @@ body{
 
 #head{
     height: 550px;
-    background: url(resources/title.jpg);
+    background: url(../resources/title.jpg) no-repeat;
     background-attachment:fixed;
     background-size: 100%;
     ;
@@ -67,7 +67,7 @@ a:hover
     position: relative;
     width: 100%;
     height: 80px;
-    background: url('resources/reverse.png') center top;
+    background: url(../resources/reverse.png) center top;
     animation: alternate;
     font-family: Tomorrow;
 }
@@ -77,7 +77,7 @@ a:hover
     top: 0;
     width:100%;
     height: 80px;
-    background: url('resources/reverse.png') center top;
+    background: url(../resources/reverse.png) center top;
     padding-right: 100%;
     animation:alternate;
     margin: 0;
@@ -86,14 +86,14 @@ a:hover
 
 #explication{
     height: 500px;
-    background: url('resources/Cyberpunk2077_Mr_Jenkins_RGB-en.jpg');  
+    background: url(../resources/Cyberpunk2077_Mr_Jenkins_RGB-en.jpg);  
     background-attachment: fixed;
     background-position: 70ch;
 }
 
 #explication.floatable{
     height: 500px;
-    background: url('resources/Cyberpunk2077_Mr_Jenkins_RGB-en.jpg');    
+    background: url(../resources/Cyberpunk2077_Mr_Jenkins_RGB-en.jpg);    
     background-attachment: fixed;
     background-position: 70ch;
     margin: 0;
@@ -103,8 +103,8 @@ a:hover
 
 #reseau{
     width: auto;
-    height: 4000px;
-    background: url('resources/Capture\ d’écran\ 2021-11-10\ 205413.png') center top;
+    height: 400px;
+    background: url('../resources/Capture\ d’écran\ 2021-11-10\ 205413.png') center top;
 }
 
 #barreDesTaches nav ul li{
@@ -133,6 +133,10 @@ a:hover
 #explication div p{
     margin-bottom: 10px;
     color:#eec60a;
+}
+
+.errorLog{
+    color: red;
 }
 
 @media screen 
