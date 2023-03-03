@@ -1,0 +1,11 @@
+<a href="/app">application</a>
+<div class="rooms">
+    <h2>rooms available</h2>
+    <%rooms.forEach(room => { %>
+        <a href="/app?room=<%= room._id %>">
+        <div class="room">
+            <img height="100" width="150" src="/resources/cyberpunk-styled-city-wallpaper.jpg"
+        </div></a>
+    <% }) %>
+    <a href="/parties/create">create a room</a>
+</div>

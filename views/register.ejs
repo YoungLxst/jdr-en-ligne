@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>register</h1>
+
+<form action="/auth/register" method="POST">
+    <%if(locals.errorMessages){ %>
+        <p><%= errorMessages.username %></p>
+    <% } %>
+    <label>username</label>
+    <input type="text" name="username">
+    <%if(locals.errorMessages){ %>
+        <p><%= errorMessages.email %></p>
+    <% } %>
+    <label>email</label>
+    <input type="email" name="email">
+    <%if(locals.errorMessages){ %>
+        <p><%= errorMessages.password %></p>
+    <% } %>
+    <label>password</label>
+    <input type="password" name="password">
+    <input type="submit" value="submit">
+</form>
+    
+</body>
+</html>
