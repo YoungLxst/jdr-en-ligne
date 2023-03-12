@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const User = require('../models/user')
 
-router.get('/', (req, res) =>{
+router.get('/', async (req, res) =>{
     if(req.isAuthenticated()){
-        //console.log(req.session)
-        res.render('regles/index', {layout: 'layouts/layoutCon'})
+        const user = await User.findById(req.session.passport.user)
+        res.render('regles/index', {layout: 'layouts/layoutCon',user:user})
     }else{
         res.render('regles/index')
     }

@@ -4,6 +4,18 @@ const passport = require('passport')
 //require user model
 const User = require('../models/user')
 
+const path = require('path')
+const fs = require('fs')
+const multer = require('multer')
+const uploadPath = path.join('public',User.basePath)
+const imageMimeTypes = ['image/jpeg','image/png','image/gif']
+const upload = multer({
+    dest:uploadPath,
+    fileFilter:(req, file, callback) =>{
+        callback(null, imageMimeTypes.includes(file.mimetype))
+    }
+})
+
 const initializePassport = require('../passport-config')
 initializePassport(passport)
 
@@ -15,11 +27,13 @@ router.get('/login',checkAuthentificated, async(req, res) =>{
     res.render('login', { layout: 'layouts/layoutLogs' })
 })
 
-router.post('/auth/register', async(req, res) =>{
+router.post('/auth/register', upload.single('profilPicture'), async(req, res) =>{
+    const fileName = req.file != null ? req.file.filename : 'defaultProfilPicture'
     const user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        profilPicture: fileName
     })
     let errorMessages={}
     if(await User.find({username: req.body.username}).count() != 0 || req.body.username == "" || req.body.username.indexOf(' ') >= 0){
@@ -38,10 +52,15 @@ router.post('/auth/register', async(req, res) =>{
                 res.redirect('/')
             })
         }catch(e){
-            
+            if(user.profilPicture != null){
+                removePP(user.profilPicture)
+            }
             res.send(e)
         }
     }else{
+        if(user.profilPicture != null){
+            removePP(user.profilPicture)
+        }
         res.render('register',{errorMessages, layout: 'layouts/layoutLogs'})
     }
 })
@@ -71,11 +90,8 @@ function checkAuthentificated(req, res, next){
 
 module.exports = router
 
-router.get('/ajax', async (req, res) =>{
-    if(req.isAuthenticated()){
-        let user = await User.findById(req.session.passport.user)
-        res.send(JSON.stringify(user))
-    }else{
-        res.send({user: null})
-    }
-})
+function removePP(fileName) {
+    fs.unlink(path.join(uploadPath, fileName), err => {
+      if (err) console.error(err)
+    })
+  }

@@ -11,7 +11,16 @@ const roomSchema = new mongoose.Schema({
         type:Date,
         required:true,
         default:Date.now
-    }
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    characters: [{
+        type:mongoose.Types.ObjectId,
+        ref: 'Character',
+        default:null,
+    }]
 })
 
 module.exports = mongoose.model('Room', roomSchema)

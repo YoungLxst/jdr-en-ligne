@@ -1,9 +1,12 @@
 const router = require('express').Router()
+const User = require('../models/user')
+
 var users = {}
 
-router.get('/', (req, res) =>{
+router.get('/', async (req, res) =>{
     if(req.isAuthenticated()){
-        res.render('chat/index', {layout:'layouts/layoutCon'})
+        const user = await User.findById(req.session.passport.user)
+        res.render('chat/index', {layout:'layouts/layoutCon',user:user})
     }else{
         res.redirect('/login')
     }

@@ -36,9 +36,9 @@ app.use(passport.session())
 
 app.use('/app',appRouter.app)
 app.use('/',indexRouter)
-app.use('/regles',reglesRouter)
+app.use('/rules',reglesRouter)
 app.use('/character',personagesRouter)
-app.use('/rules',partiesRouter)
+app.use('/parties',partiesRouter)
 app.use('/',authRoute)
 app.use('/chat', chatRoute.router)
 

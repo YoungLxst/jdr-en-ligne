@@ -26,27 +26,22 @@
                 sessionStorage.setItem('idUser', '<%= id %>')
             }
         </script>
-        <% }else{ %>
-            <script>
-                if (sessionStorage.getItem('idUser')) {
-                    sessionStorage.removeItem('idUser')
-                }
-            </script>
-            <% } %>
-                <script>
-                    window.addEventListener("beforeunload", function (event) {
-                        event.preventDefault();
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("GET", "/user/leave", true);
-                        xhr.setRequestHeader('Content-Type', 'application/json');
-                        xhr.send();
-                    });
-                </script>
-                <script src="/js/scrollBar.js"></script>
-                <!-- <script src="/js/user.js"></script> -->
-                <link rel="stylesheet" href="/css/styles.css" />
-                <link rel="stylesheet" href="/css/userStyle.css" />
-                <link rel="stylesheet" href="/css/chatStyle.css" />
+    <% }%>
+        
+    <script>
+        window.addEventListener("beforeunload", function (event) {
+            event.preventDefault();
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/user/leave", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send();
+        });
+    </script>
+    <script src="/js/scrollBar.js"></script>
+    <!-- <script src="/js/user.js"></script> -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/userStyle.css" />
+    <link rel="stylesheet" href="/css/chatStyle.css" />
 </head>
 
 <body>
