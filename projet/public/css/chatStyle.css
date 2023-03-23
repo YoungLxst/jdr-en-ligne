@@ -1,0 +1,58 @@
+.user_list{
+    height: 100px;
+    background-color: white;
+    margin-top: 100px;
+    display: block;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+.user_list ul li{
+    display:inline-block;
+    white-space: nowrap;
+    margin: 5px 2px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.user_list ul{
+    padding: 0 0;
+}
+
+.chat{
+    margin: 5px 10px;
+    padding-top: 5px;
+    background-color:beige ;
+}
+
+.chat_box{
+    margin: 5px 5px;
+    height: 450px;
+    border: 2px #ddd solid;
+    background-color: gray;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.message_container{
+    margin: 5px 5px;
+    display: inline-block;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px black solid;
+}
+
+.message_container p{
+    margin: 5px 5px;
+}
+
+.send{
+    text-align: end;
+}
+
+.bar{
+    padding: 10px 10px;
+    text-align: center;
+}

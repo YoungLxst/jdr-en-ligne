@@ -1,0 +1,675 @@
+<a href="/character/new">create character</a>
+
+<section id="carachDB">
+    <div class="container site">
+        <h1 class="text-logo">montrer les personage</h1>
+
+        <nav>
+            <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab1" role="tab"
+                        aria-selected="true">netrunner</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab2" role="tab" aria-selected="false"
+                        tabindex="-1">solo</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab3" role="tab" aria-selected="false"
+                        tabindex="-1">techie</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab4" role="tab" aria-selected="false"
+                        tabindex="-1">rockeur</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab5" role="tab" aria-selected="false"
+                        tabindex="-1">medtech</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab6" role="tab" aria-selected="false"
+                        tabindex="-1">corpo</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab7" role="tab" aria-selected="false"
+                        tabindex="-1">fixer</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab8" role="tab" aria-selected="false"
+                        tabindex="-1">media</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab9" role="tab" aria-selected="false"
+                        tabindex="-1">justicier</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tab10" role="tab" aria-selected="false"
+                        tabindex="-1">nomade</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="tab-content">
+            <div class="tab-pane active show" id="tab1" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'netrunner'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab2" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'solo'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab3" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'techie'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab4" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'rockeur'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab5" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'medtech'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab6" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'corporatiste'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab7" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'fixer'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab8" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'media'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab9" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'justicier'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="tab-pane show" id="tab10" role="tabpanel">
+                <div class="row">
+                    <% if(locals.characters){ %>
+                        <% characters.forEach(charac => { %>
+                        <% if (charac.class == 'nomade'){ %>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail"><img src="resources/characPicture/<%= charac.characterImage %>" alt="...">
+                                    <div><%= charac.firstname %> <%= charac.lastname %></div>
+                                    <div class="caption">
+                                        <h4>STAT</h4>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteligence</td>
+                                                    <td><%= charac.int %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>refléxe</td>
+                                                    <td><%= charac.ref %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>technique</td>
+                                                    <td><%= charac.tech %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>volonté</td>
+                                                    <td><%= charac.vol %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>prestance</td>
+                                                    <td><%= charac.pres %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>empathie</td>
+                                                    <td><%= charac.emp %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>chance</td>
+                                                    <td><%= charac.cha %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>corp</td>
+                                                    <td><%= charac.cor %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>dexterité</td>
+                                                    <td><%= charac.dex %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>mouvement</td>
+                                                    <td><%= charac.mouv %></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

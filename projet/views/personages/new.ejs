@@ -1,0 +1,9 @@
+<h2>New caracter</h2>
+<form action="/character/create_charac/step2" method="POST" enctype="multipart/form-data">
+  <% if(locals.error){ %>
+    <p><%= error %></p>
+  <% } %>
+  <%- include('_form_fields') %>
+  <a href="/character">cancel</a>
+  <button type="submit">Create</button>
+</form>

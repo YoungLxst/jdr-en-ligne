@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="/css/requestStyle.css">
+<% if(locals.invitation != 0) { %>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+
+        .popup .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -150%) scale(0);
+            width: 350px;
+            height: 430px;
+            z-index: 2;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            background: #dfdfdf;
+
+            z-index: 1;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            color: white;
+            font-size: 30px;
+            border-radius: 50%;
+            padding: 2px 5px 7px 5px;
+            background: #237be6;
+
+        }
+
+        .popup.active .content {
+            transition: all 300ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .input-field .validate {
+            padding: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 15px;
+            color: #000000;
+            background: #ffffff;
+            border: 2px solid rgb(214, 214, 214);
+            width: 270px;
+            outline: none;
+        }
+
+        .first-button {
+            color: rgb(3, 48, 146);
+            font-size: 25px;
+            font-weight: 500;
+            padding: 15px 50px;
+            border-radius: 5px;
+            border: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #dadadb;
+
+            transition: box-shadow .35s ease !important;
+            outline: none;
+        }
+
+        .first-button:active {
+            background-color: rgb(2, 42, 112);
+            color: #fff;
+            border: none;
+        }
+
+        .second-button {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 20px;
+            padding: 15px 40px;
+            border-radius: 5px;
+            border: none;
+            background: #05438f;
+
+            transition: box-shadow .35s ease !important;
+            outline: none;
+        }
+
+        .second-button:active {
+            background: linear-gradient(145deg, #222222, #292929);
+
+            border: none;
+            outline: none;
+        }
+    </style>
+    <h2>invitation</h2>
+    <div class="request_list container">
+        <ul>
+            <% invitation.forEach(room =>{ %>
+                <li>
+                    <div>
+                        <img class="inv" src="/resources/cyberpunk-styled-city-wallpaper.jpg" height="75" width="112"
+                            value="<%=room.room%>">
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+    <div class="popup" id="popup-1">
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup()">
+                ×</div>
+
+            <h2>Join the room</h2>
+            <form action="/parties/join" method="post">
+                <input type="hidden" name="room" id="hidInf" value="">
+                <div>
+                    <label>choose your character</label>
+                    <select name="character">
+                        <% characters.forEach(character=>{ %>
+                            <option label="<%= character.firstname %> <%= character.lastname %>" value="<%= character.id %>"></option>
+                            <% }) %>
+                    </select>
+                </div>
+                <input type="submit" value="join">
+            </form>
+        </div>
+    </div>
+    <script>
+        const tabs = document.querySelectorAll('.inv')
+        tabs.forEach(tab => {
+            tab.onclick = () => {
+                const val =tab.getAttribute('value')
+                document.getElementById('hidInf').setAttribute("value",val)
+                togglePopup()
+            }
+        });
+        function togglePopup() {
+            document.getElementById("popup-1")
+                .classList.toggle("active");
+        }
+    </script>
+<% } %>
+<div class="rooms">
+    <h2>rooms available</h2>
+    <%rooms.forEach(room=> { %>
+        <a href="/app?room=<%= room._id %>">
+            <div class="room">
+                <label><%= room.name %></label>
+                <img height="100" width="150" src="/resources/cyberpunk-styled-city-wallpaper.jpg" 
+            </div>
+        </a>
+    <% }) %>
+        <a href="/parties/new">cré ton monde</a>
+</div>

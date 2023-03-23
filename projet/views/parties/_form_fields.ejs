@@ -1,0 +1,52 @@
+<div>
+    <label>name of the room</label>
+    <input type="text" name="name">
+</div>
+<div class="allUser">
+    <div>
+        <label>select a user</label>
+        <select name="user">
+            <% users.forEach(user=>{ %>
+                <option label="<%= user.username %>" value="<%= user.id %>"></option>
+            <% }) %>
+        </select>
+    </div>
+</div>
+<div>
+    <input type="button" value="add a user" onclick="addUser();">
+</div>
+<input type="submit" value="create">
+
+<script>
+    function addUser() {
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "/parties/getUser", true);
+        xhr.onload = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    let data = JSON.parse(xhr.response);
+
+                    const allUserDiv = document.querySelector('.allUser')
+                    const selectElement = document.createElement('select')
+                    selectElement.setAttribute('name', 'user')
+                    const newDiv = document.createElement('div')
+                    const newLabel = document.createElement('label')
+                    newLabel.innerText = "select a user "
+                    newDiv.appendChild(newLabel)
+
+                    data.forEach(user => {
+                        const optionElement = document.createElement('option')
+                        optionElement.setAttribute('label', user.username)
+                        optionElement.setAttribute('value', user._id)
+                        selectElement.appendChild(optionElement)
+                    });
+
+                    newDiv.appendChild(selectElement)
+                    allUserDiv.appendChild(newDiv)
+                }
+            }
+        }
+        xhr.send();
+    }
+</script>

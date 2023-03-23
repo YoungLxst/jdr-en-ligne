@@ -1,0 +1,73 @@
+body{
+    margin:10px;
+    padding: 10px;
+    background-color:#191a1e;
+    background-color: radial-gradient(
+        ellipse at 33% 10%,
+        #461616 0%,
+        transparent 75%
+    );
+    color: #e8615a;
+}
+div{
+    border: 2px solid;
+}
+
+#app-wrapper{
+    display:grid;
+    gap: 0rem;
+    grid-template-areas:
+    "theme-picker theme-picker theme-picker" 
+    "choice canvas coment";
+    height: 100%;
+    grid-auto-rows: 10% 90%;
+    grid-auto-columns: 10% 80% 10%;
+    border-color: blueviolet;
+}
+
+div#menu{
+    grid-area: theme-picker;
+    border-color: aquamarine;
+}
+#groupe{
+    grid-area:choice;
+    border-color: blue;
+}
+
+#carte{
+    grid-area:canvas;
+}
+
+#plateau{
+    position: relative;
+}
+
+#myCanvas{
+    position: absolute;
+    background-color: white;
+    border: 2px solid black;
+    cursor: crosshair;
+}
+
+#myToken{
+    position: absolute;
+    background-color:transparent;
+}
+
+#coment{
+    grid-area: coment;
+    border-color: brown;
+}
+
+#penChoice{
+    float: right;
+    width: 96px;
+    height: 100%;
+    background-color: gray;
+    border: 0px;
+}
+
+#size{
+    width: 94px;
+    background: aliceblue;
+}
