@@ -1,35 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-<h1>register</h1>
+<link rel="stylesheet" href="/css/styleLog.css">
+<div class="login-box">
+    <h2>Inscription</h2>
 
 <form action="/auth/register" method="POST" enctype="multipart/form-data">
     <%if(locals.errorMessages){ %>
         <p><%= errorMessages.username %></p>
     <% } %>
-    <label>username</label>
-    <input type="text" name="username">
+    <div class="user-box">
+            <input type="text" name="username">
+            <label>username</label>
+    </div>
+
     <%if(locals.errorMessages){ %>
         <p><%= errorMessages.email %></p>
     <% } %>
-    <label>email</label>
-    <input type="email" name="email">
+    
+    <div class="user-box">
+        <input type="email" name="email">
+        <label>email</label>
+    </div>
     <%if(locals.errorMessages){ %>
         <p><%= errorMessages.password %></p>
     <% } %>
-    <label>password</label>
-    <input type="password" name="password">
-    <label>profil picture</label>
-    <input type="file" name="profilPicture">
-    <input type="submit" value="submit">
+    <div class="user-box">
+
+        <input type="password" name="password">
+        <label>password</label>
+    </div>
+    <div class="user-box">
+        
+        <input type="file" name="profilPicture">
+        <label>profil picture</label>
+    </div>
+    <div class="buton">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <input type="submit" value="register">
+    </div>
 </form>
-    
-</body>
-</html>
+</div>

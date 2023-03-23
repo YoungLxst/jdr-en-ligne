@@ -1,7 +1,20 @@
 <html><head>
 	<title>cyberpunk partie</title>
 	<script src="https://cdn.socket.io/4.5.4/socket.io.min.js" integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="css/partieStyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&amp;display=swap'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=VT323&amp;display=swap'>
+	<link rel="stylesheet" href="css/appStyle.css">
+  <% characters.forEach(charac => { %>
+    <% if (charac.user == user) { %>  
+      <script>
+        sessionStorage.setItem("idCharacter", '<%= charac.id %>')
+        sessionStorage.setItem("firstnameCharacter", '<%= charac.firstname %>')
+        sessionStorage.setItem("lastnameCharacter", '<%= charac.lastname %>')
+    </script>
+      <% } %>
+  <% }) %>
+  
 <body>
         <%- body %>
     </body>

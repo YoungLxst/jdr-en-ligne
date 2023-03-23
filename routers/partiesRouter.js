@@ -13,7 +13,10 @@ router.get('/', async (req, res) => {
         try {
             var roomsId = []
             var rooms = []
-            characters.forEach(async char =>{
+            await (await Room.find({admin: req.session.passport.user})).forEach(r =>{
+                rooms.push(r)
+            })
+            characters.forEach(char =>{
                 for(var i =0 ; i < char.rooms.length; i++){
                     roomsId.push(char.rooms[i])
                 }

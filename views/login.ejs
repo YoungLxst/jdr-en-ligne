@@ -1,13 +1,30 @@
-<h1>login</h1>
+<link rel="stylesheet" href="/css/styleLog.css">
+<div class="login-box">
+    <h2>Login</h2>
 
-<% if(messages.error){ %>
-    <p> <%= messages.error %></p>
-<% } %>
+    <% if(messages.error){ %>
+        <p>
+            <%= messages.error %>
+        </p>
+        <% } %>
 
-<form action="/auth/login" method="POST">
-    <label>username</label>
-    <input type="text" name="username">
-    <label>password</label>
-    <input type="password" name="password">
-    <input type="submit" value="submit">
-</form>
+            <form action="/auth/login" method="POST">
+                <div class="user-box">
+
+                    <input type="text" name="username">
+                    <label for="username">username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="password">
+                    <label for="password">password</label>
+                </div>
+
+                <div class="buton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <input type="submit" value="login">
+                </div>
+            </form>
+</div>

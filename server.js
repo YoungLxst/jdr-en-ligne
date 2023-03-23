@@ -1,7 +1,3 @@
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config()
-}
-
 const express = require('express')
 const app = express()
 const expressLayout = require('express-ejs-layouts')
@@ -44,7 +40,7 @@ app.use('/chat', chatRoute.router)
 
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', false)
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, family: 4 })
+mongoose.connect('mongodb://localhost/choombatech', { useNewUrlParser: true, family: 4 })
 const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
@@ -54,10 +50,12 @@ var server = app.listen(80)
 var socket = require('socket.io')
 var io = socket(server)
 
+require('./routers/appRouter').connect(io)
+
 io.sockets.on('connection', (socket) => {
     console.log('new connection')
     console.log(socket.id)
-    require('./routers/appRouter').connect(socket)
+    
     chatRoute.connect(socket)
 })
 

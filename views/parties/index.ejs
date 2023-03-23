@@ -144,14 +144,17 @@
     </script>
 <% } %>
 <div class="rooms">
-    <h2>rooms available</h2>
-    <%rooms.forEach(room=> { %>
-        <a href="/app?room=<%= room._id %>">
-            <div class="room">
-                <label><%= room.name %></label>
-                <img height="100" width="150" src="/resources/cyberpunk-styled-city-wallpaper.jpg" 
-            </div>
-        </a>
-    <% }) %>
-        <a href="/parties/new">create a room</a>
+        <h2>rooms available</h2>
+            <%rooms.forEach(room=> { %>
+                <% if(room != null){ %>
+                    <a href="/app?room=<%= room._id %>">
+                    <div class="room">
+                        <label><%= room.name %></label>
+                        <img height="100" width="150" src="/resources/cyberpunk-styled-city-wallpaper.jpg" 
+                    </div>
+                </a>
+                <% } %>
+            <% }) %>
+    <br>    
+    <a href="/parties/new">create a room</a>
 </div>

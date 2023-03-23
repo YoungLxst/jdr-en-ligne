@@ -11,13 +11,12 @@ router.get('/', async (req,res) =>{
     }
 })
 
-router.get('/test',(req,res) =>{
-    res.render('test')
+router.get('/help',(req,res) =>{
+    res.render('help')
 })
 
-router.post('/test',(req, res) =>{
-    console.log(req.body.text.length)
-    res.redirect('/test')
+router.get('/history',(req, res) =>{
+    res.render('history')
 })
 
 module.exports = router

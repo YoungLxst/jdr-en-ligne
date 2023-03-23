@@ -1,25 +1,28 @@
-//socket
-var socket
-socket = io.connect('http://localhost:80')
-
 const url = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
   });
 const room = url.room
 
+const user = sessionStorage.getItem('idUser')
+
+minHeight = 650
+minWidth = 520
+
 //canvas carte
 const canvas = document.getElementById("myCanvas")
 const ctxMap = canvas.getContext('2d')
-canvas.height = document.getElementById('app-wrapper').clientHeight - 8 - document.getElementById('menu').clientHeight
-canvas.width = document.getElementById('app-wrapper').clientWidth - 100 - 12 - document.getElementById('groupe').clientWidth - document.getElementById('coment').clientWidth
-let widhtDiff = document.getElementById('groupe').clientWidth
-let heightDiff = document.getElementById('menu').clientHeight
+canvas.height = document.getElementsByClassName('app-field')[0].clientHeight - 10
+canvas.width = document.getElementsByClassName('app-field')[0].clientWidth
+let heightDiff = 10
 
 //canvas token
 const canvasToken = document.getElementById("myToken")
 const ctxPawn = canvasToken.getContext("2d")
-canvasToken.height = document.getElementById('app-wrapper').clientHeight - 8 - document.getElementById('menu').clientHeight
-canvasToken.width = document.getElementById('app-wrapper').clientWidth - 100 - 12 - document.getElementById('groupe').clientWidth - document.getElementById('coment').clientWidth
+canvasToken.height = document.getElementsByClassName('app-field')[0].clientHeight - 10
+canvasToken.width = document.getElementsByClassName('app-field')[0].clientWidth
+
+widhtDiff = 312
+heightDiff = 83
 
 //button
 var color = document.getElementById('myColor')
@@ -31,6 +34,7 @@ var undo = document.getElementById('undo')
 let painting = false
 let penUsed = true
 let eraser = false
+
 // drag related variables
 var dragok = false
 var startX
@@ -117,22 +121,26 @@ document.getElementById('erase').onclick = function () {
 
 
 function draw(e) {
+    ctxMap.strokeStyle = color.value
+    ctxMap.lineWidth = size.value
     ctxMap.lineJoin = 'round'
     ctxMap.lineCap = 'round'
-    var x = e.pageX - widhtDiff - 28
-    var y = e.pageY - heightDiff - 28
+    var x = e.pageX - widhtDiff 
+    var y = e.pageY - heightDiff
     ctxMap.lineTo(x, y)
     ctxMap.stroke()
     var data = {
         x: x,
-        y: y
+        y: y,
+        color:color.value,
+        size:size.value
     }
     socket.emit('mouse', data, room)
 }
 
 function erase(e) {
-    var x = e.pageX - widhtDiff - 30
-    var y = e.pageY - heightDiff - 30
+    var x = e.pageX - widhtDiff
+    var y = e.pageY - heightDiff
     ctxMap.clearRect(x, y, 20, 20)
     var data = {
         x: x,
@@ -142,17 +150,15 @@ function erase(e) {
 }
 
 
-document.getElementById('myColor').addEventListener('change', function () {
+document.getElementById('myColor').addEventListener('change',()=> {
     ctxMap.strokeStyle = color.value
 })
 
-size.addEventListener('change', function () {
+size.addEventListener('change', () => {
     ctxMap.lineWidth = size.value
-
-    socket.emit('size', size.value, room)
 })
 
-bgrColor.addEventListener('change', function () {
+bgrColor.addEventListener('change', () => {
     canvas.style.backgroundColor = bgrColor.value
 
     socket.emit('background', bgrColor.value, room)
@@ -160,7 +166,7 @@ bgrColor.addEventListener('change', function () {
 
 document.getElementById('create_pawn').addEventListener('click', addPawn)
 
-undo.onclick = function () {
+undo.onclick = () => {
     socket.emit('undo', room)
     if (index >= 1) {
 
@@ -180,9 +186,10 @@ undo.onclick = function () {
 
 function myDown(e) {
 
+    console.log("my down")
     // get the current mouse position
-    var mx = e.pageX - widhtDiff - 28
-    var my = e.pageY - heightDiff - 28
+    var mx = e.pageX - widhtDiff
+    var my = e.pageY - heightDiff
 
     // test each rect to see if mouse is inside
     dragok = false
@@ -233,7 +240,6 @@ function myUp(e) {
     painting = false
     ctxMap.beginPath()
 
-
 }
 
 function myMove(e) {
@@ -242,8 +248,8 @@ function myMove(e) {
     if (dragok) {
 
         // get the current mouse position
-        var mx = e.pageX - widhtDiff - 28
-        var my = e.pageY - heightDiff - 28
+        var mx = e.pageX - widhtDiff
+        var my = e.pageY - heightDiff
 
         // calculate the distance the mouse has moved
         // since the last mousemove
@@ -282,23 +288,24 @@ function myMove(e) {
 
 }
 
-window.onresize = function () {
-    canvas.height = document.getElementById('app-wrapper').clientHeight - 8 - document.getElementById('menu').clientHeight
-    canvas.width = document.getElementById('app-wrapper').clientWidth - 100 - 12 - document.getElementById('groupe').clientWidth - document.getElementById('coment').clientWidth
-    canvasToken.height = document.getElementById('app-wrapper').clientHeight - 8 - document.getElementById('menu').clientHeight
-    canvasToken.width = document.getElementById('app-wrapper').clientWidth - 100 - 12 - document.getElementById('groupe').clientWidth - document.getElementById('coment').clientWidth
-    widhtDiff = document.getElementById('groupe').clientWidth
-    heightDiff = document.getElementById('menu').clientHeight
+window.onresize = () =>{
+    canvas.height = document.getElementsByClassName('app-field')[0].clientHeight - 10
+    canvas.width = document.getElementsByClassName('app-field')[0].clientWidth
+    
+    canvasToken.height = document.getElementsByClassName('app-field')[0].clientHeight - 10
+    canvasToken.width = document.getElementsByClassName('app-field')[0].clientWidth
     if (restore_array.length != 0) {
         ctxMap.putImageData(restore_array[index], 0, 0)
     }
     drawPawn()
 }
+    
 
 /**
  * socket function
  */
 
+socket.emit('user', user)
 socket.emit('join-room',room)
 
 socket.on('addPawn', (data) => {
@@ -307,6 +314,8 @@ socket.on('addPawn', (data) => {
 })
 
 socket.on('mouse', (data) => {
+    ctxMap.strokeStyle = data.color
+    ctxMap.lineWidth = data.size
     ctxMap.lineJoin = 'round'
     ctxMap.lineCap = 'round'
     ctxMap.lineTo(data.x, data.y)
@@ -348,7 +357,6 @@ socket.on('undo', () => {
 })
 
 socket.on('dragok', (data) => {
-    console.log('receive dragok' + data)
     var r = pawns[data]
     r.isDragging = true
     let tmp
@@ -368,168 +376,3 @@ socket.on('drag', (data) => {
     r.y += data.y
     drawPawn()
 })
-
-/*
-window.onload = function(){
-var canvas 
-var ctxMap
-var delay = 80
-var blockSize = 30
-var canvasWidth = 900
-var canvasHeight = 600
-var snakee
-var applee
-
-init()
- 
-function init(){
-    canvas = document.createElement('canvas')
-    canvas.width = canvasWidth
-    canvas.height = canvasHeight
-    canvas.style.border = "2px solid"
-    document.body.appendChild(canvas)
-
-    ctxMap = canvas.getContext('2d')
-    snakee = new Snake([[6,4],[5,4],[4,4]],"right")
-    applee = new Apple([0,0])
-    applee.getNewPosition(snakee.body)
-    refreshCanvas()
-}
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max)
-}
-
-function refreshCanvas(){
-    ctxMap.clearRect(0,0,canvasWidth,canvasHeight)
-    snakee.advance(applee.position)
-    snakee.draw()
-    applee.draw()
-    //applee.getNewPosition(snakee.body)
-    console.log(applee.position)
-    setTimeout(refreshCanvas,delay)
-}
-
-function drawBlock(ctxMap, position){
-    var x = position[0] * blockSize
-    var y = position[1] * blockSize
-    ctxMap.fillRect(x,y,blockSize,blockSize)
-}
-
-function check(a,b){
-    if(a[0] == b[0] && a[1] == b[1]) return 0
-    else return 1
-}
-
-function Snake(body,direction){
-    this.body = body
-    this.direction = direction
-    this.draw = function(){
-        ctxMap.save()
-        ctxMap.fillStyle = "ff0000"
-        for(var i = 0 i<this.body.length i++){
-            drawBlock(ctxMap,this.body[i])
-        }
-        ctxMap.restore()
-    }
-
-    this.advance = function(applePos){
-        var nextPostition = this.body[0].slice()
-        switch(this.direction){
-            case "left":
-                nextPostition[0] -= 1
-                break
-            case "right":
-                nextPostition[0] += 1
-                break
-            case "down" :
-                nextPostition[1] = nextPostition[1]+1
-                break
-            case "up" :
-                nextPostition[1] = nextPostition[1]-1
-                break
-            default:
-                console.log("fuck you")
-                return
-        }
-        
-        this.body.unshift(nextPostition)
-        if(nextPostition[0] == applePos[0] && nextPostition[1] == applePos[1]) applee.getNewPosition(this.body)
-        else this.body.pop()
-    }
-
-    this.setDirection = function(newDirection){
-        var allowedDirection
-        switch(this.direction){
-            case "left":
-            case "right":
-                allowedDirection = ["down","up"]
-                break
-            case "down":
-            case "up":
-                allowedDirection = ["left","right"]
-                break
-            default:
-                throw("invalide direction")
-        }
-        if(allowedDirection.indexOf(newDirection)>-1){
-            this.direction = newDirection
-        }
-    }
-
-    this.getBiger = function(){
-        var last = this.body[this.body.length-1]
-        this.body.push(last)
-    }
-
-}
-
-function Apple(position){
-    this.position = position
-    this.draw = function(){
-        ctxMap.save()
-        ctxMap.fillStyle = "#33cc33"
-        ctxMap.beginPath()
-        var radius = blockSize/2
-        var x = this.position[0]*blockSize+radius
-        var y = this.position[1]*blockSize+radius
-        ctxMap.arc(x,y,radius,0,2*Math.PI,true)
-        ctxMap.fill()
-        ctxMap.restore()
-    }
-    this.getNewPosition = function(body){
-        var x = getRandomInt(30)
-        var y = getRandomInt(20)
-        var good = 1
-        for(var i = 0  i<body.lengthi++){
-            if(check([x,y],body[i])==0) good = 0
-        }
-        if(good == 1) this.position = [x,y]
-        else this.getNewPosition()
-    }
-}
-
-document.onkeydown = function handleKeyDown(e){
-    var key = e.code
-    var newDirection
-    switch(key){
-        case "KeyA":
-            newDirection = "left"
-            break
-        case "KeyW":
-            newDirection = "up"
-            break
-        case "KeyD":
-            newDirection = "right"
-            break
-        case "KeyS":
-            newDirection = "down"
-            break
-        default:
-            return
-    }
-
-    snakee.setDirection(newDirection)
-}
-}
-*/
