@@ -1,0 +1,133 @@
+[{
+  "_id": {
+    "$oid": "641d66fe690eb067e0223355"
+  },
+  "firstname": "frank",
+  "lastname": "vdb",
+  "class": "netrunner",
+  "user": {
+    "$oid": "641d66d7690eb067e022333b"
+  },
+  "finished": false,
+  "characterImage": "defaultCharaPic",
+  "rooms": [],
+  "__v": 0,
+  "cha": 8,
+  "cor": 5,
+  "dex": 8,
+  "emp": 5,
+  "int": 8,
+  "mouv": 5,
+  "pres": 5,
+  "ref": 8,
+  "tech": 5,
+  "vol": 5
+},{
+  "_id": {
+    "$oid": "641d6758690eb067e0223377"
+  },
+  "firstname": "bill",
+  "lastname": "meuré",
+  "class": "netrunner",
+  "user": {
+    "$oid": "641d6686690eb067e0223312"
+  },
+  "finished": false,
+  "characterImage": "defaultCharaPic",
+  "rooms": [
+    {
+      "$oid": "641d67f3690eb067e02233c0"
+    }
+  ],
+  "__v": 0,
+  "cha": 8,
+  "cor": 5,
+  "dex": 8,
+  "emp": 5,
+  "int": 8,
+  "mouv": 5,
+  "pres": 5,
+  "ref": 8,
+  "tech": 5,
+  "vol": 5
+},{
+  "_id": {
+    "$oid": "641d6786690eb067e0223398"
+  },
+  "firstname": "riwane",
+  "lastname": "jordan",
+  "class": "rockeur",
+  "user": {
+    "$oid": "641d66c1690eb067e022332f"
+  },
+  "finished": false,
+  "characterImage": "defaultCharaPic",
+  "rooms": [
+    {
+      "$oid": "641d67f3690eb067e02233c0"
+    }
+  ],
+  "__v": 0,
+  "cha": 8,
+  "cor": 5,
+  "dex": 8,
+  "emp": 5,
+  "int": 8,
+  "mouv": 5,
+  "pres": 5,
+  "ref": 8,
+  "tech": 5,
+  "vol": 5
+},{
+  "_id": {
+    "$oid": "641d7b31cf020e9b4ee9ac96"
+  },
+  "firstname": "nom",
+  "lastname": "prenom",
+  "class": "netrunner",
+  "user": {
+    "$oid": "641d66c1690eb067e022332f"
+  },
+  "finished": false,
+  "characterImage": "defaultCharaPic",
+  "rooms": [],
+  "__v": 0,
+  "cha": 8,
+  "cor": 5,
+  "dex": 8,
+  "emp": 5,
+  "int": 8,
+  "mouv": 5,
+  "pres": 5,
+  "ref": 8,
+  "tech": 5,
+  "vol": 5
+},{
+  "_id": {
+    "$oid": "641d7bd7cf020e9b4ee9acf0"
+  },
+  "firstname": "ilian",
+  "lastname": "vdb",
+  "class": "netrunner",
+  "user": {
+    "$oid": "641d661e9bf2e485e6a27ced"
+  },
+  "finished": false,
+  "characterImage": "defaultCharaPic",
+  "rooms": [
+    {
+      "$oid": "641d7b99cf020e9b4ee9acb8"
+    }
+  ],
+  "__v": 0,
+  "cha": 8,
+  "cor": 5,
+  "dex": 8,
+  "emp": 5,
+  "int": 8,
+  "mouv": 5,
+  "pres": 5,
+  "ref": 8,
+  "tech": 5,
+  "vol": 5
+}]

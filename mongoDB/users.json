@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "641d661e9bf2e485e6a27ced"
+  },
+  "username": "ilian",
+  "email": "ilian@ilian",
+  "password": "221001",
+  "profilPicture": "defaultProfilPicture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641d6686690eb067e0223312"
+  },
+  "username": "riwane",
+  "email": "riwane@riwane",
+  "password": "riwane",
+  "profilPicture": "defaultProfilPicture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641d66c1690eb067e022332f"
+  },
+  "username": "samuel",
+  "email": "samuel@samuel",
+  "password": "samuel",
+  "profilPicture": "defaultProfilPicture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641d66d7690eb067e022333b"
+  },
+  "username": "frank",
+  "email": "frank@frank",
+  "password": "frank",
+  "profilPicture": "defaultProfilPicture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641d7a29cf020e9b4ee9ac69"
+  },
+  "username": "un_gars",
+  "email": "ung@jhbi",
+  "password": "samuel",
+  "profilPicture": "defaultProfilPicture",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641d81fccf020e9b4ee9ad26"
+  },
+  "username": "test",
+  "email": "test@test",
+  "password": "test@test",
+  "profilPicture": "defaultProfilPicture",
+  "__v": 0
+}]

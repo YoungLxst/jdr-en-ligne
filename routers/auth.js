@@ -52,15 +52,19 @@ router.post('/auth/register', upload.single('profilPicture'), async(req, res) =>
                 res.redirect('/')
             })
         }catch(e){
+            /*
             if(user.profilPicture != null){
                 removePP(user.profilPicture)
             }
+            */
             res.send(e)
         }
     }else{
+        /*
         if(user.profilPicture != null){
             removePP(user.profilPicture)
         }
+        */
         res.render('register',{errorMessages, layout: 'layouts/layoutLogs'})
     }
 })

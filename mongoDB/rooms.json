@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "641d67f3690eb067e02233c0"
+  },
+  "admin": {
+    "$oid": "641d661e9bf2e485e6a27ced"
+  },
+  "name": "room Test",
+  "characters": [
+    {
+      "$oid": "641d6758690eb067e0223377"
+    },
+    {
+      "$oid": "641d6786690eb067e0223398"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1679648755862"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641d7b99cf020e9b4ee9acb8"
+  },
+  "admin": {
+    "$oid": "641d66c1690eb067e022332f"
+  },
+  "name": "room",
+  "characters": [
+    {
+      "$oid": "641d7bd7cf020e9b4ee9acf0"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1679653785130"
+    }
+  },
+  "__v": 0
+}]
